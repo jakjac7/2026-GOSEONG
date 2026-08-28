@@ -156,7 +156,7 @@ progress = retain current progress
 
 # 5. Scene Design
 
-# DAY 1 — 우리가 왔다
+# DAY 1 — Hello, 고성
 
 ---
 
@@ -186,7 +186,7 @@ None / Tap to observe optional hotspots
 ```text
 2026. 8. 3
 DAY 1
-우리가 왔다
+Hello, 고성
 ```
 
 ### Audio
@@ -402,7 +402,7 @@ Animation:
 ## D2-03 — 80 SERVINGS
 
 ### Location
-좁은 교회 부엌 / 준비실
+설악산선교교회 예배당
 
 ### Interaction
 Hold
@@ -429,10 +429,10 @@ Hold
 - 2명
 
 중반:
-- 5명
+- 예배당에 팀원들이 하나둘 모임
 
 후반:
-- 공간이 꽉 찬 여러 팀원
+- 모두가 한자리에 모여 생닭의 속을 채움
 
 ### Props
 - 닭
@@ -447,7 +447,7 @@ Hold
 
 ---
 
-## D2-04 — PRAYER FOR NORTH KOREA
+## D2-04 — LOWLINESS FOR GANGWON EVANGELIZATION
 
 ### Time
 Night
@@ -467,7 +467,7 @@ Hold
 ↓
 고성
 ↓
-북쪽 방향 풍경
+강원도 구석구석의 마을과 교회
 ```
 
 ### Sound
@@ -477,7 +477,7 @@ WORK BGM fade out → ambient pad
 Hold 시작 시 1회만 subtle vibration.
 
 ### Memory
-`M07_PRAYER_NORTH`
+`M07_GANGWON_LOWNESS`
 
 ---
 
@@ -968,7 +968,7 @@ DAY 2
 
 ```text
 8.3
-우리가 왔다.
+Hello, 고성.
 ```
 
 ```text

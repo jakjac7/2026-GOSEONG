@@ -2,7 +2,7 @@ import type { GameState } from '../core/GameState';
 import type { SaveManager } from '../core/SaveManager';
 
 const ENDING_CARDS = [
-  ['8.3', '우리가 왔다.'],
+  ['8.3', 'Hello, 고성.'],
   ['8.4', '우리가 땀을 흘렸다.'],
   ['8.5', '사람들이 교회 안으로 들어왔다.'],
   ['8.6', '우리는 다시 삶으로 돌아갔다.'],

@@ -1,5 +1,5 @@
 {
-  "version": 1,
+  "version": 2,
   "assets": [
     {
       "asset_id": "bg-church-arrival",
@@ -14,6 +14,7 @@
       "usage": "D1 arrival / D4 cleanup",
       "status": "ready",
       "resize_width": 960,
+      "source_kind": "provided",
       "note": "Source-sheet grid may remain visible; crop is presented as a memory-card/sticker, not a transparent sprite."
     },
     {
@@ -29,6 +30,7 @@
       "usage": "D3-02 door reveal",
       "status": "ready",
       "resize_width": 960,
+      "source_kind": "provided",
       "note": "Source-sheet grid may remain visible; crop is presented as a memory-card/sticker, not a transparent sprite."
     },
     {
@@ -44,6 +46,7 @@
       "usage": "D2 church repair",
       "status": "ready",
       "resize_width": 960,
+      "source_kind": "provided",
       "note": "Source-sheet grid may remain visible; crop is presented as a memory-card/sticker, not a transparent sprite."
     },
     {
@@ -59,6 +62,7 @@
       "usage": "D3-03 feast",
       "status": "ready",
       "resize_width": 1120,
+      "source_kind": "provided",
       "note": "Source-sheet grid may remain visible; crop is presented as a memory-card/sticker, not a transparent sprite."
     },
     {
@@ -74,6 +78,7 @@
       "usage": "D4 observatory",
       "status": "ready",
       "resize_width": 960,
+      "source_kind": "provided",
       "note": "Source-sheet grid may remain visible; crop is presented as a memory-card/sticker, not a transparent sprite."
     },
     {
@@ -89,21 +94,7 @@
       "usage": "D1 worship / D2 prayer",
       "status": "ready",
       "resize_width": 760,
-      "note": "Source-sheet grid may remain visible; crop is presented as a memory-card/sticker, not a transparent sprite."
-    },
-    {
-      "asset_id": "bus",
-      "source": "1787883500341.png",
-      "rect": {
-        "x": 18,
-        "y": 205,
-        "w": 268,
-        "h": 121
-      },
-      "output": "bus.webp",
-      "usage": "D1 / D4 travel sticker",
-      "status": "ready",
-      "resize_width": 520,
+      "source_kind": "provided",
       "note": "Source-sheet grid may remain visible; crop is presented as a memory-card/sticker, not a transparent sprite."
     },
     {
@@ -119,6 +110,7 @@
       "usage": "D1 tent setup",
       "status": "ready",
       "resize_width": 760,
+      "source_kind": "provided",
       "note": "Source-sheet grid may remain visible; crop is presented as a memory-card/sticker, not a transparent sprite."
     },
     {
@@ -134,6 +126,7 @@
       "usage": "D2 brick work",
       "status": "ready",
       "resize_width": 700,
+      "source_kind": "provided",
       "note": "Source-sheet grid may remain visible; crop is presented as a memory-card/sticker, not a transparent sprite."
     },
     {
@@ -149,111 +142,7 @@
       "usage": "D2 brick work detail",
       "status": "ready",
       "resize_width": 760,
-      "note": "Source-sheet grid may remain visible; crop is presented as a memory-card/sticker, not a transparent sprite."
-    },
-    {
-      "asset_id": "prayer-team",
-      "source": "1787883511320.png",
-      "rect": {
-        "x": 785,
-        "y": 205,
-        "w": 579,
-        "h": 185
-      },
-      "output": "prayer-team.webp",
-      "usage": "D1 / D2 prayer",
-      "status": "ready",
-      "resize_width": 820,
-      "note": "Source-sheet grid may remain visible; crop is presented as a memory-card/sticker, not a transparent sprite."
-    },
-    {
-      "asset_id": "elders",
-      "source": "1787883500341.png",
-      "rect": {
-        "x": 455,
-        "y": 555,
-        "w": 505,
-        "h": 191
-      },
-      "output": "elders.webp",
-      "usage": "D3 pickup / welcome",
-      "status": "ready",
-      "resize_width": 820,
-      "note": "Source-sheet grid may remain visible; crop is presented as a memory-card/sticker, not a transparent sprite."
-    },
-    {
-      "asset_id": "elder-yellow",
-      "source": "1787883500341.png",
-      "rect": {
-        "x": 468,
-        "y": 565,
-        "w": 87,
-        "h": 181
-      },
-      "output": "elder-yellow.webp",
-      "usage": "D3-02 first entrant",
-      "status": "ready",
-      "resize_width": 210,
-      "note": "Source-sheet grid may remain visible; crop is presented as a memory-card/sticker, not a transparent sprite."
-    },
-    {
-      "asset_id": "elder-gray",
-      "source": "1787883500341.png",
-      "rect": {
-        "x": 555,
-        "y": 560,
-        "w": 90,
-        "h": 186
-      },
-      "output": "elder-gray.webp",
-      "usage": "D3-02 second entrant",
-      "status": "ready",
-      "resize_width": 210,
-      "note": "Source-sheet grid may remain visible; crop is presented as a memory-card/sticker, not a transparent sprite."
-    },
-    {
-      "asset_id": "elder-hat",
-      "source": "1787883500341.png",
-      "rect": {
-        "x": 710,
-        "y": 555,
-        "w": 95,
-        "h": 191
-      },
-      "output": "elder-hat.webp",
-      "usage": "D3-02 third entrant",
-      "status": "ready",
-      "resize_width": 210,
-      "note": "Source-sheet grid may remain visible; crop is presented as a memory-card/sticker, not a transparent sprite."
-    },
-    {
-      "asset_id": "meal-table",
-      "source": "1787883500341.png",
-      "rect": {
-        "x": 570,
-        "y": 350,
-        "w": 270,
-        "h": 205
-      },
-      "output": "meal-table.webp",
-      "usage": "D2 food prep / D3 meal",
-      "status": "ready",
-      "resize_width": 600,
-      "note": "Source-sheet grid may remain visible; crop is presented as a memory-card/sticker, not a transparent sprite."
-    },
-    {
-      "asset_id": "feast-stage",
-      "source": "1787883501759.png",
-      "rect": {
-        "x": 915,
-        "y": 155,
-        "w": 449,
-        "h": 465
-      },
-      "output": "feast-stage.webp",
-      "usage": "D3 singing vignette",
-      "status": "ready",
-      "resize_width": 680,
+      "source_kind": "provided",
       "note": "Source-sheet grid may remain visible; crop is presented as a memory-card/sticker, not a transparent sprite."
     },
     {
@@ -269,6 +158,7 @@
       "usage": "D2 door-to-door motif",
       "status": "ready",
       "resize_width": 520,
+      "source_kind": "provided",
       "note": "Source-sheet grid may remain visible; crop is presented as a memory-card/sticker, not a transparent sprite."
     },
     {
@@ -284,7 +174,63 @@
       "usage": "D4 memory card",
       "status": "ready",
       "resize_width": 600,
+      "source_kind": "provided",
       "note": "Source-sheet grid may remain visible; crop is presented as a memory-card/sticker, not a transparent sprite."
+    },
+    {
+      "asset_id": "travel-bus",
+      "source": "generated/travel-bus.png",
+      "output": "travel-bus.webp",
+      "usage": "D1 / D4 group travel",
+      "resize_width": 760,
+      "status": "ready",
+      "source_kind": "openai-imagegen",
+      "operation": "alpha-trim + resize",
+      "note": "Original transparent PNG is preserved in public/assets/generated."
+    },
+    {
+      "asset_id": "pickup-suv-1004",
+      "source": "generated/pickup-suv-1004.png",
+      "output": "pickup-suv-1004.webp",
+      "usage": "D3 elder pickup only",
+      "resize_width": 660,
+      "status": "ready",
+      "source_kind": "openai-imagegen",
+      "operation": "alpha-trim + resize",
+      "note": "Original transparent PNG is preserved in public/assets/generated."
+    },
+    {
+      "asset_id": "elders-group",
+      "source": "generated/elders-group.png",
+      "output": "elders-group.webp",
+      "usage": "D3 pickup / threshold / welcome",
+      "resize_width": 460,
+      "status": "ready",
+      "source_kind": "openai-imagegen",
+      "operation": "alpha-trim + resize",
+      "note": "Original transparent PNG is preserved in public/assets/generated."
+    },
+    {
+      "asset_id": "prayer-team",
+      "source": "generated/prayer-team.png",
+      "output": "prayer-team.webp",
+      "usage": "D1 opening worship / D2 prayer",
+      "resize_width": 760,
+      "status": "ready",
+      "source_kind": "openai-imagegen",
+      "operation": "alpha-trim + resize",
+      "note": "Original transparent PNG is preserved in public/assets/generated."
+    },
+    {
+      "asset_id": "meal-prep-team",
+      "source": "generated/meal-prep-team.png",
+      "output": "meal-prep-team.webp",
+      "usage": "D2 sanctuary meal preparation",
+      "resize_width": 860,
+      "status": "ready",
+      "source_kind": "openai-imagegen",
+      "operation": "alpha-trim + resize",
+      "note": "Original transparent PNG is preserved in public/assets/generated."
     }
   ]
 }

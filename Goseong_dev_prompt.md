@@ -181,7 +181,7 @@ MVP는 아래 12 Scene을 기준으로 한다.
 | D2-01 | 벽돌 운반 | Hold |
 | D2-02 | 축호전도 | Tap |
 | D2-03 | 80인분 준비 | Hold |
-| D2-04 | 북한을 위한 중보기도 | Hold |
+| D2-04 | 강원도 구석구석 복음화를 향한 낮아짐 | Hold |
 | D3-01 | 어르신 픽업 | Tap |
 | D3-02 | 교회 문턱 | Tap |
 | D3-03 | 마을잔치 | Tap |
@@ -472,7 +472,7 @@ M03_BUS_STOP
 M04_THREE_TRUCKS
 M05_VILLAGE_BROADCAST
 M06_EIGHTY_MEALS
-M07_PRAYER_NORTH
+M07_GANGWON_LOWNESS
 M08_1004_CAR
 M09_THRESHOLD
 M10_MEAL

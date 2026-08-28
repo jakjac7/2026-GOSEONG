@@ -21,7 +21,7 @@ export function mountAppShell(root: HTMLElement): void {
       </section>
 
       <section class="story-panel" aria-live="polite">
-        <p class="scene-code" id="scene-code">D1-01 · 우리가 왔다</p>
+        <p class="scene-code" id="scene-code">D1-01 · Hello, 고성</p>
         <h1 id="scene-title">버스 출발</h1>
         <p class="scene-caption" id="scene-caption">고성으로 향할 준비를 합니다.</p>
       </section>
@@ -62,7 +62,7 @@ export function mountAppShell(root: HTMLElement): void {
     <section class="day-transition" id="day-transition" aria-live="assertive">
       <p id="transition-date">8.3</p>
       <strong id="transition-day">DAY 1</strong>
-      <span id="transition-theme">우리가 왔다</span>
+      <span id="transition-theme">Hello, 고성</span>
     </section>
 
     <section class="memory-toast" id="memory-toast" aria-live="polite">

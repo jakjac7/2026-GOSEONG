@@ -100,31 +100,36 @@ export class MemoryStage extends Phaser.Scene {
 
   private addSticker(url: string, effect: VisualEffect, momentIndex: number): void {
     const key = this.assetKey(url);
-    const image = this.add.image(WIDTH * 0.68, HEIGHT * 0.55, key);
+    const isCutout = this.isCutout(url);
+    const image = this.add.image(isCutout ? WIDTH * 0.58 : WIDTH * 0.68, HEIGHT * 0.55, key);
     const source = image.texture.getSourceImage() as HTMLImageElement;
-    const maxWidth = effect === 'pickup' ? 590 : 520;
-    const maxHeight = effect === 'prayer' ? 250 : 320;
+    const maxWidth = this.stickerMaxWidth(url, effect);
+    const maxHeight = url === ASSETS.elders ? 350 : effect === 'prayer' ? 300 : 340;
     const scale = Math.min(maxWidth / source.width, maxHeight / source.height);
     image.setScale(scale).setAngle((momentIndex % 2 === 0 ? -1 : 1) * 1.1);
 
-    const bounds = image.getBounds();
-    const frame = this.add
-      .rectangle(
-        bounds.centerX,
-        bounds.centerY,
-        bounds.width + 28,
-        bounds.height + 28,
-        0xf6efd9,
-        0.96,
-      )
-      .setStrokeStyle(4, 0x193d34, 0.65)
-      .setAngle(image.angle);
-    frame.setDepth(2);
+    const tweenTargets: Phaser.GameObjects.GameObject[] = [image];
+    if (!isCutout) {
+      const bounds = image.getBounds();
+      const frame = this.add
+        .rectangle(
+          bounds.centerX,
+          bounds.centerY,
+          bounds.width + 28,
+          bounds.height + 28,
+          0xf6efd9,
+          0.96,
+        )
+        .setStrokeStyle(4, 0x193d34, 0.65)
+        .setAngle(image.angle)
+        .setDepth(2);
+      tweenTargets.unshift(frame);
+    }
     image.setDepth(3);
     this.focusObject = image;
 
     this.tweens.add({
-      targets: [frame, image],
+      targets: tweenTargets,
       alpha: { from: 0, to: 1 },
       y: `+=${momentIndex % 2 === 0 ? 10 : -8}`,
       duration: 520,
@@ -186,32 +191,25 @@ export class MemoryStage extends Phaser.Scene {
         duration: 1450,
         ease: 'Sine.easeInOut',
         onComplete: () => {
-          this.walkElder('elderYellow', -58, 650);
-          this.walkElder('elderGray', 6, 1420);
-          this.walkElder('elderHat', 70, 2190, () => window.setTimeout(resolve, 350));
+          this.walkElders(() => window.setTimeout(resolve, 350));
         },
       });
     });
   }
 
-  private walkElder(
-    key: 'elderYellow' | 'elderGray' | 'elderHat',
-    offsetX: number,
-    delay: number,
-    done?: () => void,
-  ): void {
-    const elder = this.add
-      .image(WIDTH / 2 + offsetX, HEIGHT + 80, key)
+  private walkElders(done: () => void): void {
+    const elders = this.add
+      .image(WIDTH / 2, HEIGHT + 150, 'elders')
       .setDepth(6)
       .setAlpha(0);
-    const source = elder.texture.getSourceImage() as HTMLImageElement;
-    elder.setScale(Math.min(130 / source.width, 205 / source.height));
+    const source = elders.texture.getSourceImage() as HTMLImageElement;
+    elders.setScale(Math.min(300 / source.width, 350 / source.height));
     this.tweens.add({
-      targets: elder,
-      y: HEIGHT / 2 + 118 + Math.abs(offsetX) * 0.08,
+      targets: elders,
+      y: HEIGHT / 2 + 142,
       alpha: 0.96,
-      duration: 1550,
-      delay,
+      duration: 2200,
+      delay: 500,
       ease: 'Sine.easeInOut',
       onComplete: done,
     });
@@ -230,9 +228,28 @@ export class MemoryStage extends Phaser.Scene {
   ): string | undefined {
     if (effect === 'pickup' && momentIndex >= 2) return ASSETS.elders;
     if (effect === 'return') return ASSETS.bus;
-    if (effect === 'cleanup') return momentIndex === 0 ? ASSETS.feastStage : ASSETS.tents;
+    if (effect === 'cleanup') return ASSETS.tents;
     if (effect === 'feast' || effect === 'threshold') return undefined;
     return scene.sticker;
+  }
+
+  private isCutout(url: string): boolean {
+    return [
+      ASSETS.bus,
+      ASSETS.pickupSuv,
+      ASSETS.elders,
+      ASSETS.prayerTeam,
+      ASSETS.mealPrepTeam,
+    ].some((asset) => asset === url);
+  }
+
+  private stickerMaxWidth(url: string, effect: VisualEffect): number {
+    if (url === ASSETS.bus) return 720;
+    if (url === ASSETS.pickupSuv) return 620;
+    if (url === ASSETS.elders) return 430;
+    if (url === ASSETS.prayerTeam) return 650;
+    if (url === ASSETS.mealPrepTeam) return 760;
+    return effect === 'pickup' ? 590 : 520;
   }
 
   private assetKey(url: string): string {

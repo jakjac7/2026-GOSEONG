@@ -18,12 +18,12 @@ export const MEMORIES: readonly MemoryDefinition[] = [
     id: 'M03_BUS_STOP',
     title: '경동대 버스정류장',
     caption: '낭만적이지 않은 반응까지 기억한다.',
-    image: ASSETS.bus,
+    image: ASSETS.prayerTeam,
   },
   {
     id: 'M04_THREE_TRUCKS',
     title: '벽돌 세 트럭',
-    caption: '땀이 기억보다 먼저 남았던 날.',
+    caption: '세 트럭분을 옮기고 아야진 교회를 정비하러 갔다.',
     image: ASSETS.brickTruck,
   },
   {
@@ -35,20 +35,20 @@ export const MEMORIES: readonly MemoryDefinition[] = [
   {
     id: 'M06_EIGHTY_MEALS',
     title: '80인분',
-    caption: '좁은 부엌에 손이 하나둘 모였다.',
-    image: ASSETS.mealTable,
+    caption: '예배당에 모두가 모여 생닭의 속을 넣었다.',
+    image: ASSETS.mealPrepTeam,
   },
   {
-    id: 'M07_PRAYER_NORTH',
-    title: '북쪽을 향한 기도',
-    caption: '고성에서 더 먼 곳으로 시선이 넓어졌다.',
+    id: 'M07_GANGWON_LOWNESS',
+    title: '낮아짐으로 품은 강원도',
+    caption: '강원도 구석구석의 복음화를 향해 기도했다.',
     image: ASSETS.prayerTeam,
   },
   {
     id: 'M08_1004_CAR',
     title: '1004호 차량',
     caption: '기다리는 대신 직접 모시러 갔다.',
-    image: ASSETS.bus,
+    image: ASSETS.pickupSuv,
   },
   {
     id: 'M09_THRESHOLD',
@@ -60,13 +60,13 @@ export const MEMORIES: readonly MemoryDefinition[] = [
     id: 'M10_MEAL',
     title: '전복삼계탕',
     caption: '함께 먹는 일이 환대의 중심이 되었다.',
-    image: ASSETS.mealTable,
+    image: ASSETS.villageFeast,
   },
   {
     id: 'M11_MICROPHONE',
     title: '마이크',
     caption: '강한 볕 아래서도 노래와 웃음이 이어졌다.',
-    image: ASSETS.feastStage,
+    image: ASSETS.villageFeast,
   },
   {
     id: 'M12_OBSERVATORY',

@@ -43,6 +43,7 @@ src/
   ui/            앱, 앨범, 엔딩/방명록
 public/assets/
   raw/           제공 원본 이미지(수정 금지)
+  generated/     투명 배경으로 새로 그린 원본 에셋
   processed/     게임용 슬라이스 결과
 scripts/         재현 가능한 에셋 처리
 tests/           상태·저장·입력·내러티브 회귀 테스트
@@ -50,7 +51,7 @@ tests/           상태·저장·입력·내러티브 회귀 테스트
 
 ## 에셋 파이프라인
 
-원본 15장은 `public/assets/raw`에 그대로 보존됩니다. `scripts/process_assets.py`가 crop 좌표를 기준으로 게임용 WebP를 만들고, `public/assets/processed/asset-manifest.json`에 원본 파일·좌표·용도를 기록합니다. 레퍼런스 시트의 격자가 남은 crop은 투명 스프라이트로 위장하지 않고 기억카드/스티커 형태로 사용합니다.
+제공 원본 15장은 `public/assets/raw`에 그대로 보존됩니다. 사람·차량은 원본 시트를 스타일 참고로 삼아 투명 PNG로 새로 그려 `public/assets/generated`에 보존합니다. `scripts/process_assets.py`가 제공 원본의 crop과 생성 원본의 알파 영역을 각각 최적화된 WebP로 만들고, `public/assets/processed/asset-manifest.json`에 출처·처리 방식·용도를 기록합니다.
 
 ## 배포
 
