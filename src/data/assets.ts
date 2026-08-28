@@ -17,8 +17,8 @@ export const ASSETS = {
   prayerTeam: assetPath('prayer-team.webp'),
   elders: assetPath('elders-group.webp'),
   mealPrepTeam: assetPath('meal-prep-team.webp'),
-  outreachVolunteers: illustratedPath('outreach-volunteers.svg'),
-  internationalStudents: illustratedPath('international-students.svg'),
+  outreachVolunteers: assetPath('outreach-volunteers-v2.webp'),
+  internationalStudents: assetPath('international-students-v2.webp'),
   observatoryChurch: assetPath('observatory-church-cutout.webp'),
 } as const;
 

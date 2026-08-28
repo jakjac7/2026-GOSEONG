@@ -179,6 +179,28 @@
       "source_kind": "openai-imagegen",
       "operation": "alpha-trim + resize",
       "note": "Original transparent PNG is preserved in public/assets/generated."
+    },
+    {
+      "asset_id": "outreach-volunteers-v2",
+      "source": "generated/outreach-volunteers-v2.png",
+      "output": "outreach-volunteers-v2.webp",
+      "usage": "D1 campus / D2 village outreach",
+      "resize_width": 480,
+      "status": "ready",
+      "source_kind": "openai-imagegen",
+      "operation": "alpha-trim + resize",
+      "note": "Original transparent PNG is preserved in public/assets/generated."
+    },
+    {
+      "asset_id": "international-students-v2",
+      "source": "generated/international-students-v2.png",
+      "output": "international-students-v2.webp",
+      "usage": "D1 campus outreach",
+      "resize_width": 600,
+      "status": "ready",
+      "source_kind": "openai-imagegen",
+      "operation": "alpha-trim + resize",
+      "note": "Original transparent PNG is preserved in public/assets/generated."
     }
   ]
 }

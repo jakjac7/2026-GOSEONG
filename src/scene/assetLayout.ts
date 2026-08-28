@@ -42,8 +42,8 @@ export const outreachPlacements = (
 
 export const placementFor = (url: string, effect: VisualEffect): StickerPlacement => {
   if (url === ASSETS.bus) return { x: 245, y: 474, maxWidth: 650, maxHeight: 270 };
-  if (url === ASSETS.pickupSuv) return { x: 650, y: 475, maxWidth: 530, maxHeight: 270 };
-  if (url === ASSETS.elders) return { x: 690, y: 448, maxWidth: 390, maxHeight: 350 };
+  if (url === ASSETS.pickupSuv) return { x: 650, y: 535, maxWidth: 530, maxHeight: 270 };
+  if (url === ASSETS.elders) return { x: 690, y: 535, maxWidth: 390, maxHeight: 350 };
   if (url === ASSETS.prayerTeam) return { x: 490, y: 438, maxWidth: 650, maxHeight: 310 };
   if (url === ASSETS.mealPrepTeam) return { x: 480, y: 465, maxWidth: 840, maxHeight: 370 };
   if (url === ASSETS.brickTruck) return { x: 555, y: 478, maxWidth: 650, maxHeight: 320 };

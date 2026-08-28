@@ -56,6 +56,12 @@ describe('narrative registry', () => {
     expect(JSON.stringify(prayer)).not.toContain('북한');
   });
 
+  it('uses the requested English title for each remaining day', () => {
+    expect(SCENES.find((scene) => scene.id === 'D2-01')?.theme).toBe('Dive into Goseong');
+    expect(SCENES.find((scene) => scene.id === 'D3-01')?.theme).toBe('Love in Goseong');
+    expect(SCENES.find((scene) => scene.id === 'D4-01')?.theme).toBe('Remember, Goseong');
+  });
+
   it('uses scene-specific outreach and clean generated visual assets', () => {
     const campus = SCENES.find((scene) => scene.id === 'D1-04');
     const village = SCENES.find((scene) => scene.id === 'D2-02');
@@ -64,6 +70,8 @@ describe('narrative registry', () => {
 
     expect(campus?.background).toBe(ASSETS.kyungdongBusStop);
     expect(campus?.sticker).toBe(ASSETS.outreachVolunteers);
+    expect(ASSETS.outreachVolunteers).toContain('outreach-volunteers-v2.webp');
+    expect(ASSETS.internationalStudents).toContain('international-students-v2.webp');
     expect(village?.sticker).toBe(ASSETS.outreachVolunteers);
     expect(meals?.background).toContain('church-interior-open.webp');
     expect(observatory?.sticker).toContain('observatory-church-cutout.webp');

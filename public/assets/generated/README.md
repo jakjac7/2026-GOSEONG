@@ -13,5 +13,7 @@ These PNG masters were created with the built-in OpenAI image generation tool on
 | `brick-truck-loaded.png`        | White Korean 1-ton flatbed truck facing right, visibly loaded with stacked red bricks, true-alpha pixel-art sprite                | DAY 2 brick transport                             |
 | `observatory-church-cutout.png` | Complete small coastal observatory chapel with cross, reconstructed from the cropped facade as a true-alpha pixel-art building    | DAY 4 observatory                                 |
 | `church-interior-open.png`      | Red-brick sanctuary redrawn as a full 4:3 background with every chair removed and an open foreground floor                        | DAY 1 worship / DAY 2 meal preparation and prayer |
+| `outreach-volunteers-v2.png`    | Two young Korean volunteers with invitation and tote bag, matched to the existing warm outlined pixel-art character style         | DAY 1 campus / DAY 2 village outreach             |
+| `international-students-v2.png` | Three international university students with varied skin tones and campus bags, matched to the same pixel-art style               | DAY 1 campus outreach                             |
 
 Constraints shared by every prompt: clean alpha edges; no grid or card frame; no scenery; no watermark; no cropped subjects; match the warm outlined pixel-art language of the supplied reference sheets.

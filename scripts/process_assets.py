@@ -54,6 +54,8 @@ GENERATED_ASSETS = (
     GeneratedAsset("brick-truck-loaded", "brick-truck-loaded.png", "brick-truck-loaded.webp", "D2 three truckloads", 760),
     GeneratedAsset("observatory-church-cutout", "observatory-church-cutout.png", "observatory-church-cutout.webp", "D4 observatory chapel", 620),
     GeneratedAsset("church-interior-open", "church-interior-open.png", "church-interior-open.webp", "D1 worship / D2 meal preparation and prayer", 960),
+    GeneratedAsset("outreach-volunteers-v2", "outreach-volunteers-v2.png", "outreach-volunteers-v2.webp", "D1 campus / D2 village outreach", 480),
+    GeneratedAsset("international-students-v2", "international-students-v2.png", "international-students-v2.webp", "D1 campus outreach", 600),
 )
 
 
