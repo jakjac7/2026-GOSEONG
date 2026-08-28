@@ -18,7 +18,7 @@ export const MEMORIES: readonly MemoryDefinition[] = [
     id: 'M03_BUS_STOP',
     title: '경동대 버스정류장',
     caption: '낭만적이지 않은 반응까지 기억한다.',
-    image: ASSETS.prayerTeam,
+    image: ASSETS.kyungdongBusStop,
   },
   {
     id: 'M04_THREE_TRUCKS',
@@ -30,7 +30,7 @@ export const MEMORIES: readonly MemoryDefinition[] = [
     id: 'M05_VILLAGE_BROADCAST',
     title: '마을방송',
     caption: '한 집의 연결이 마을 전체로 번졌다.',
-    image: ASSETS.doorProp,
+    image: ASSETS.elders,
   },
   {
     id: 'M06_EIGHTY_MEALS',

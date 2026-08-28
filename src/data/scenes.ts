@@ -91,8 +91,8 @@ export const SCENES: readonly SceneDefinition[] = [
     date: '8.3',
     title: '경동대 버스정류장',
     theme: '낯선 반응 곁에서',
-    background: ASSETS.observatory,
-    sticker: ASSETS.prayerTeam,
+    background: ASSETS.kyungdongBusStop,
+    sticker: ASSETS.outreachVolunteers,
     memories: ['M03_BUS_STOP'],
     moments: [
       {
@@ -161,7 +161,7 @@ export const SCENES: readonly SceneDefinition[] = [
     title: '집집마다',
     theme: '문을 두드리다',
     background: ASSETS.churchArrival,
-    sticker: ASSETS.doorProp,
+    sticker: ASSETS.outreachVolunteers,
     memories: ['M05_VILLAGE_BROADCAST'],
     moments: [
       {

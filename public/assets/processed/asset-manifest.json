@@ -1,5 +1,5 @@
 {
-  "version": 2,
+  "version": 3,
   "assets": [
     {
       "asset_id": "bg-church-arrival",
@@ -82,102 +82,6 @@
       "note": "Source-sheet grid may remain visible; crop is presented as a memory-card/sticker, not a transparent sprite."
     },
     {
-      "asset_id": "church-interior",
-      "source": "1787883511363.png",
-      "rect": {
-        "x": 10,
-        "y": 245,
-        "w": 600,
-        "h": 695
-      },
-      "output": "church-interior.webp",
-      "usage": "D1 worship / D2 prayer",
-      "status": "ready",
-      "resize_width": 760,
-      "source_kind": "provided",
-      "note": "Source-sheet grid may remain visible; crop is presented as a memory-card/sticker, not a transparent sprite."
-    },
-    {
-      "asset_id": "tents",
-      "source": "1787883500341.png",
-      "rect": {
-        "x": 895,
-        "y": 25,
-        "w": 465,
-        "h": 199
-      },
-      "output": "tents.webp",
-      "usage": "D1 tent setup",
-      "status": "ready",
-      "resize_width": 760,
-      "source_kind": "provided",
-      "note": "Source-sheet grid may remain visible; crop is presented as a memory-card/sticker, not a transparent sprite."
-    },
-    {
-      "asset_id": "brick-truck",
-      "source": "1787883505030.png",
-      "rect": {
-        "x": 770,
-        "y": 345,
-        "w": 350,
-        "h": 240
-      },
-      "output": "brick-truck.webp",
-      "usage": "D2 brick work",
-      "status": "ready",
-      "resize_width": 700,
-      "source_kind": "provided",
-      "note": "Source-sheet grid may remain visible; crop is presented as a memory-card/sticker, not a transparent sprite."
-    },
-    {
-      "asset_id": "bricks",
-      "source": "1787883510115.png",
-      "rect": {
-        "x": 790,
-        "y": 690,
-        "w": 474,
-        "h": 153
-      },
-      "output": "bricks.webp",
-      "usage": "D2 brick work detail",
-      "status": "ready",
-      "resize_width": 760,
-      "source_kind": "provided",
-      "note": "Source-sheet grid may remain visible; crop is presented as a memory-card/sticker, not a transparent sprite."
-    },
-    {
-      "asset_id": "door-prop",
-      "source": "1787883510115.png",
-      "rect": {
-        "x": 675,
-        "y": 20,
-        "w": 250,
-        "h": 345
-      },
-      "output": "door-prop.webp",
-      "usage": "D2 door-to-door motif",
-      "status": "ready",
-      "resize_width": 520,
-      "source_kind": "provided",
-      "note": "Source-sheet grid may remain visible; crop is presented as a memory-card/sticker, not a transparent sprite."
-    },
-    {
-      "asset_id": "observatory-church",
-      "source": "1787883479147.png",
-      "rect": {
-        "x": 10,
-        "y": 22,
-        "w": 335,
-        "h": 256
-      },
-      "output": "observatory-church.webp",
-      "usage": "D4 memory card",
-      "status": "ready",
-      "resize_width": 600,
-      "source_kind": "provided",
-      "note": "Source-sheet grid may remain visible; crop is presented as a memory-card/sticker, not a transparent sprite."
-    },
-    {
       "asset_id": "travel-bus",
       "source": "generated/travel-bus.png",
       "output": "travel-bus.webp",
@@ -227,6 +131,50 @@
       "output": "meal-prep-team.webp",
       "usage": "D2 sanctuary meal preparation",
       "resize_width": 860,
+      "status": "ready",
+      "source_kind": "openai-imagegen",
+      "operation": "alpha-trim + resize",
+      "note": "Original transparent PNG is preserved in public/assets/generated."
+    },
+    {
+      "asset_id": "canopy-tent",
+      "source": "generated/canopy-tent.png",
+      "output": "canopy-tent.webp",
+      "usage": "D1 tent setup / D4 cleanup",
+      "resize_width": 720,
+      "status": "ready",
+      "source_kind": "openai-imagegen",
+      "operation": "alpha-trim + resize",
+      "note": "Original transparent PNG is preserved in public/assets/generated."
+    },
+    {
+      "asset_id": "brick-truck-loaded",
+      "source": "generated/brick-truck-loaded.png",
+      "output": "brick-truck-loaded.webp",
+      "usage": "D2 three truckloads",
+      "resize_width": 760,
+      "status": "ready",
+      "source_kind": "openai-imagegen",
+      "operation": "alpha-trim + resize",
+      "note": "Original transparent PNG is preserved in public/assets/generated."
+    },
+    {
+      "asset_id": "observatory-church-cutout",
+      "source": "generated/observatory-church-cutout.png",
+      "output": "observatory-church-cutout.webp",
+      "usage": "D4 observatory chapel",
+      "resize_width": 620,
+      "status": "ready",
+      "source_kind": "openai-imagegen",
+      "operation": "alpha-trim + resize",
+      "note": "Original transparent PNG is preserved in public/assets/generated."
+    },
+    {
+      "asset_id": "church-interior-open",
+      "source": "generated/church-interior-open.png",
+      "output": "church-interior-open.webp",
+      "usage": "D1 worship / D2 meal preparation and prayer",
+      "resize_width": 960,
       "status": "ready",
       "source_kind": "openai-imagegen",
       "operation": "alpha-trim + resize",

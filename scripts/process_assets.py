@@ -42,12 +42,6 @@ CROPS = (
     AssetCrop("bg-ajayin", "1787903113266.png", (0, 0, 1264, 848), "bg-ajayin.webp", "D2 church repair", resize_width=960),
     AssetCrop("bg-village-feast", "1787903999548.png", (0, 0, 1552, 688), "bg-village-feast.webp", "D3-03 feast", resize_width=1120),
     AssetCrop("bg-observatory", "1787883479147.png", (1055, 32, 1355, 273), "bg-observatory.webp", "D4 observatory", resize_width=960),
-    AssetCrop("church-interior", "1787883511363.png", (10, 245, 610, 940), "church-interior.webp", "D1 worship / D2 prayer", resize_width=760),
-    AssetCrop("tents", "1787883500341.png", (895, 25, 1360, 224), "tents.webp", "D1 tent setup", resize_width=760),
-    AssetCrop("brick-truck", "1787883505030.png", (770, 345, 1120, 585), "brick-truck.webp", "D2 brick work", resize_width=700),
-    AssetCrop("bricks", "1787883510115.png", (790, 690, 1264, 843), "bricks.webp", "D2 brick work detail", resize_width=760),
-    AssetCrop("door-prop", "1787883510115.png", (675, 20, 925, 365), "door-prop.webp", "D2 door-to-door motif", resize_width=520),
-    AssetCrop("observatory-church", "1787883479147.png", (10, 22, 345, 278), "observatory-church.webp", "D4 memory card", resize_width=600),
 )
 
 GENERATED_ASSETS = (
@@ -56,6 +50,10 @@ GENERATED_ASSETS = (
     GeneratedAsset("elders-group", "elders-group.png", "elders-group.webp", "D3 pickup / threshold / welcome", 460),
     GeneratedAsset("prayer-team", "prayer-team.png", "prayer-team.webp", "D1 opening worship / D2 prayer", 760),
     GeneratedAsset("meal-prep-team", "meal-prep-team.png", "meal-prep-team.webp", "D2 sanctuary meal preparation", 860),
+    GeneratedAsset("canopy-tent", "canopy-tent.png", "canopy-tent.webp", "D1 tent setup / D4 cleanup", 720),
+    GeneratedAsset("brick-truck-loaded", "brick-truck-loaded.png", "brick-truck-loaded.webp", "D2 three truckloads", 760),
+    GeneratedAsset("observatory-church-cutout", "observatory-church-cutout.png", "observatory-church-cutout.webp", "D4 observatory chapel", 620),
+    GeneratedAsset("church-interior-open", "church-interior-open.png", "church-interior-open.webp", "D1 worship / D2 meal preparation and prayer", 960),
 )
 
 
@@ -91,7 +89,7 @@ def process_generated(asset: GeneratedAsset) -> dict[str, object]:
             image = image.crop(alpha_bounds)
         if image.width != asset.resize_width:
             height = round(image.height * asset.resize_width / image.width)
-            image = image.resize((asset.resize_width, height), Image.Resampling.LANCZOS)
+            image = image.resize((asset.resize_width, height), Image.Resampling.NEAREST)
         destination = OUTPUT / asset.output
         image.save(destination, "WEBP", quality=90, method=6)
 
@@ -110,7 +108,7 @@ def main() -> None:
     manifest = [process(crop) for crop in CROPS]
     manifest.extend(process_generated(asset) for asset in GENERATED_ASSETS)
     (OUTPUT / "asset-manifest.json").write_text(
-        json.dumps({"version": 2, "assets": manifest}, ensure_ascii=False, indent=2),
+        json.dumps({"version": 3, "assets": manifest}, ensure_ascii=False, indent=2),
         encoding="utf-8",
     )
     print(f"Processed {len(manifest)} assets into {OUTPUT}")

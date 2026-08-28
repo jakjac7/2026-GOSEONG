@@ -55,4 +55,19 @@ describe('narrative registry', () => {
     expect(prayer?.title).toBe('강원도 구석구석 복음화를 향한 낮아짐');
     expect(JSON.stringify(prayer)).not.toContain('북한');
   });
+
+  it('uses scene-specific outreach and clean generated visual assets', () => {
+    const campus = SCENES.find((scene) => scene.id === 'D1-04');
+    const village = SCENES.find((scene) => scene.id === 'D2-02');
+    const meals = SCENES.find((scene) => scene.id === 'D2-03');
+    const observatory = SCENES.find((scene) => scene.id === 'D4-01');
+
+    expect(campus?.background).toBe(ASSETS.kyungdongBusStop);
+    expect(campus?.sticker).toBe(ASSETS.outreachVolunteers);
+    expect(village?.sticker).toBe(ASSETS.outreachVolunteers);
+    expect(meals?.background).toContain('church-interior-open.webp');
+    expect(observatory?.sticker).toContain('observatory-church-cutout.webp');
+    expect(ASSETS.tents).toContain('canopy-tent.webp');
+    expect(ASSETS.brickTruck).toContain('brick-truck-loaded.webp');
+  });
 });

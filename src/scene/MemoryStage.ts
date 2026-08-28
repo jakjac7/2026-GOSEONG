@@ -1,6 +1,12 @@
 import Phaser from 'phaser';
 import { ASSETS } from '../data/assets';
 import type { SceneDefinition, VisualEffect } from '../core/types';
+import {
+  outreachPlacements,
+  placementFor,
+  tentPlacements,
+  type StickerPlacement,
+} from './assetLayout';
 
 const WIDTH = 960;
 const HEIGHT = 720;
@@ -30,6 +36,7 @@ export class MemoryStage extends Phaser.Scene {
   renderScene(scene: SceneDefinition, momentIndex: number): void {
     this.tweens.killAll();
     this.children.removeAll(true);
+    this.cameras.main.setScroll(0, 0).setZoom(1);
     this.doors = [];
     this.focusObject = null;
 
@@ -37,7 +44,7 @@ export class MemoryStage extends Phaser.Scene {
     if (!moment) return;
 
     const background = this.backgroundFor(scene, moment.effect);
-    this.addCoverImage(background);
+    this.addCoverImage(background, moment.effect, momentIndex);
     this.addVignette(scene.day);
 
     if (moment.effect === 'threshold') {
@@ -46,8 +53,25 @@ export class MemoryStage extends Phaser.Scene {
     }
 
     if (moment.effect === 'feast') {
-      this.cameras.main.pan(500 + momentIndex * 55, HEIGHT / 2, 500, 'Sine.easeInOut');
-      this.cameras.main.zoomTo(1.05 + momentIndex * 0.015, 500);
+      this.addAmbientPixels(scene.day, momentIndex);
+      return;
+    }
+
+    if (moment.effect === 'tent' || (moment.effect === 'cleanup' && momentIndex === 1)) {
+      this.addTentCluster(moment.effect === 'tent' ? momentIndex : 0);
+      this.addAmbientPixels(scene.day, momentIndex);
+      return;
+    }
+
+    if (moment.effect === 'outreach') {
+      this.addOutreachPair(false);
+      this.addAmbientPixels(scene.day, momentIndex);
+      return;
+    }
+
+    if (moment.effect === 'doors') {
+      this.addOutreachPair(true);
+      this.addAmbientPixels(scene.day, momentIndex);
       return;
     }
 
@@ -59,6 +83,16 @@ export class MemoryStage extends Phaser.Scene {
 
   animateMoment(effect: VisualEffect, momentIndex: number): Promise<void> {
     if (effect === 'threshold') return this.animateThreshold();
+
+    if ((effect === 'travel' || effect === 'return') && this.focusObject) {
+      this.tweens.add({
+        targets: this.focusObject,
+        x: this.focusObject.x + 190 + momentIndex * 24,
+        duration: 900,
+        ease: 'Sine.easeInOut',
+      });
+      return new Promise((resolve) => window.setTimeout(resolve, 920));
+    }
 
     if (this.focusObject) {
       const startY = this.focusObject.y;
@@ -76,19 +110,23 @@ export class MemoryStage extends Phaser.Scene {
     if (effect === 'prayer' || effect === 'observatory') {
       this.cameras.main.zoomTo(0.92, 900, 'Sine.easeInOut');
     }
-    if (effect === 'travel' || effect === 'return') {
-      this.cameras.main.pan(560 + momentIndex * 120, 360, 900, 'Sine.easeInOut');
-    }
-
     return new Promise((resolve) => window.setTimeout(resolve, 520));
   }
 
-  private addCoverImage(url: string): Phaser.GameObjects.Image {
+  private addCoverImage(
+    url: string,
+    effect: VisualEffect,
+    momentIndex: number,
+  ): Phaser.GameObjects.Image {
     const key = this.assetKey(url);
     const image = this.add.image(WIDTH / 2, HEIGHT / 2, key);
     const texture = image.texture.getSourceImage() as HTMLImageElement;
     const scale = Math.max(WIDTH / texture.width, HEIGHT / texture.height);
     image.setScale(scale).setScrollFactor(0);
+    if (effect === 'feast') {
+      const focalX = [620, 620, 650, 480, 240, 240][momentIndex] ?? 480;
+      image.setX(focalX);
+    }
     return image;
   }
 
@@ -100,36 +138,19 @@ export class MemoryStage extends Phaser.Scene {
 
   private addSticker(url: string, effect: VisualEffect, momentIndex: number): void {
     const key = this.assetKey(url);
-    const isCutout = this.isCutout(url);
-    const image = this.add.image(isCutout ? WIDTH * 0.58 : WIDTH * 0.68, HEIGHT * 0.55, key);
+    const placement = placementFor(url, effect);
+    const image = this.add.image(placement.x, placement.y, key).setScrollFactor(0);
     const source = image.texture.getSourceImage() as HTMLImageElement;
-    const maxWidth = this.stickerMaxWidth(url, effect);
-    const maxHeight = url === ASSETS.elders ? 350 : effect === 'prayer' ? 300 : 340;
-    const scale = Math.min(maxWidth / source.width, maxHeight / source.height);
-    image.setScale(scale).setAngle((momentIndex % 2 === 0 ? -1 : 1) * 1.1);
-
-    const tweenTargets: Phaser.GameObjects.GameObject[] = [image];
-    if (!isCutout) {
-      const bounds = image.getBounds();
-      const frame = this.add
-        .rectangle(
-          bounds.centerX,
-          bounds.centerY,
-          bounds.width + 28,
-          bounds.height + 28,
-          0xf6efd9,
-          0.96,
-        )
-        .setStrokeStyle(4, 0x193d34, 0.65)
-        .setAngle(image.angle)
-        .setDepth(2);
-      tweenTargets.unshift(frame);
-    }
-    image.setDepth(3);
+    const scale = Math.min(placement.maxWidth / source.width, placement.maxHeight / source.height);
+    image
+      .setScale(scale)
+      .setAngle(placement.angle ?? 0)
+      .setDepth(3)
+      .setAlpha(0);
     this.focusObject = image;
 
     this.tweens.add({
-      targets: tweenTargets,
+      targets: image,
       alpha: { from: 0, to: 1 },
       y: `+=${momentIndex % 2 === 0 ? 10 : -8}`,
       duration: 520,
@@ -142,7 +163,7 @@ export class MemoryStage extends Phaser.Scene {
     for (let index = 0; index < 7; index += 1) {
       const x = 70 + ((index * 137 + phase * 41) % 820);
       const y = 90 + ((index * 71 + phase * 29) % 440);
-      const pixel = this.add.rectangle(x, y, 5, 5, color, 0.35).setDepth(6);
+      const pixel = this.add.rectangle(x, y, 5, 5, color, 0.35).setDepth(6).setScrollFactor(0);
       this.tweens.add({
         targets: pixel,
         y: y - 16,
@@ -228,28 +249,62 @@ export class MemoryStage extends Phaser.Scene {
   ): string | undefined {
     if (effect === 'pickup' && momentIndex >= 2) return ASSETS.elders;
     if (effect === 'return') return ASSETS.bus;
-    if (effect === 'cleanup') return ASSETS.tents;
+    if (effect === 'cleanup') return undefined;
     if (effect === 'feast' || effect === 'threshold') return undefined;
     return scene.sticker;
   }
 
-  private isCutout(url: string): boolean {
-    return [
-      ASSETS.bus,
-      ASSETS.pickupSuv,
-      ASSETS.elders,
-      ASSETS.prayerTeam,
-      ASSETS.mealPrepTeam,
-    ].some((asset) => asset === url);
+  private addTentCluster(momentIndex: number): void {
+    tentPlacements(momentIndex).forEach((placement, index) => {
+      const tent = this.addPlacedImage(ASSETS.tents, placement, 2 + index);
+      tent.setAlpha(0);
+      this.tweens.add({
+        targets: tent,
+        alpha: 1,
+        y: tent.y + 10,
+        duration: 420,
+        delay: index * 110,
+        ease: 'Cubic.easeOut',
+      });
+      this.focusObject = tent;
+    });
   }
 
-  private stickerMaxWidth(url: string, effect: VisualEffect): number {
-    if (url === ASSETS.bus) return 720;
-    if (url === ASSETS.pickupSuv) return 620;
-    if (url === ASSETS.elders) return 430;
-    if (url === ASSETS.prayerTeam) return 650;
-    if (url === ASSETS.mealPrepTeam) return 760;
-    return effect === 'pickup' ? 590 : 520;
+  private addOutreachPair(village: boolean): void {
+    const placements = outreachPlacements(village);
+    const volunteers = this.addPlacedImage(ASSETS.outreachVolunteers, placements.volunteers, 3);
+    const neighbors = this.addPlacedImage(
+      village ? ASSETS.elders : ASSETS.internationalStudents,
+      placements.neighbors,
+      3,
+    );
+    volunteers.setAlpha(0);
+    neighbors.setAlpha(0);
+    this.tweens.add({
+      targets: [volunteers, neighbors],
+      alpha: 1,
+      y: '-=8',
+      duration: 520,
+      ease: 'Cubic.easeOut',
+    });
+    this.focusObject = volunteers;
+  }
+
+  private addPlacedImage(
+    url: string,
+    placement: StickerPlacement,
+    depth: number,
+  ): Phaser.GameObjects.Image {
+    const image = this.add
+      .image(placement.x, placement.y, this.assetKey(url))
+      .setScrollFactor(0)
+      .setDepth(depth)
+      .setAngle(placement.angle ?? 0);
+    const source = image.texture.getSourceImage() as HTMLImageElement;
+    image.setScale(
+      Math.min(placement.maxWidth / source.width, placement.maxHeight / source.height),
+    );
+    return image;
   }
 
   private assetKey(url: string): string {

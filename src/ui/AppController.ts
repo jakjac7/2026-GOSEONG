@@ -71,7 +71,8 @@ export class AppController {
 
   private prepareDevelopmentPreview(): void {
     if (!import.meta.env.DEV) return;
-    const preview = new URLSearchParams(window.location.search).get('preview');
+    const search = new URLSearchParams(window.location.search);
+    const preview = search.get('preview');
     if (!preview) return;
     this.getElement('cover-screen').classList.remove('is-open');
 
@@ -85,7 +86,11 @@ export class AppController {
     const sceneIndex = SCENES.findIndex((scene) => scene.id === preview);
     const scene = SCENES[sceneIndex];
     if (sceneIndex < 0 || !scene) return;
-    this.state.setPosition(sceneIndex, 0);
+    const requestedMoment = Number.parseInt(search.get('moment') ?? '0', 10);
+    const momentIndex = Number.isFinite(requestedMoment)
+      ? Math.min(Math.max(requestedMoment, 0), scene.moments.length - 1)
+      : 0;
+    this.state.setPosition(sceneIndex, momentIndex);
     this.lastDay = scene.day;
     this.renderCurrentMoment();
   }
