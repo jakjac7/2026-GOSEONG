@@ -4,6 +4,8 @@
 
 **플레이:** <https://jakjac7.github.io/2026-GOSEONG/>
 
+최초 배포 전 저장소의 `Settings → Pages → Build and deployment → Source`를 `GitHub Actions`로 한 번 지정해야 합니다. 이후 `main` 푸시마다 자동 배포됩니다.
+
 ## 경험 원칙
 
 - 점수, 랭크, 게임오버 없이 4일의 기억을 순서대로 걷습니다.
