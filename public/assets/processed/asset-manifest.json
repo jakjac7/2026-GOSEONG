@@ -1,0 +1,290 @@
+{
+  "version": 1,
+  "assets": [
+    {
+      "asset_id": "bg-church-arrival",
+      "source": "1787903081073.png",
+      "rect": {
+        "x": 0,
+        "y": 0,
+        "w": 1264,
+        "h": 848
+      },
+      "output": "bg-church-arrival.webp",
+      "usage": "D1 arrival / D4 cleanup",
+      "status": "ready",
+      "resize_width": 960,
+      "note": "Source-sheet grid may remain visible; crop is presented as a memory-card/sticker, not a transparent sprite."
+    },
+    {
+      "asset_id": "bg-threshold",
+      "source": "1787903096675.png",
+      "rect": {
+        "x": 0,
+        "y": 0,
+        "w": 1264,
+        "h": 848
+      },
+      "output": "bg-threshold.webp",
+      "usage": "D3-02 door reveal",
+      "status": "ready",
+      "resize_width": 960,
+      "note": "Source-sheet grid may remain visible; crop is presented as a memory-card/sticker, not a transparent sprite."
+    },
+    {
+      "asset_id": "bg-ajayin",
+      "source": "1787903113266.png",
+      "rect": {
+        "x": 0,
+        "y": 0,
+        "w": 1264,
+        "h": 848
+      },
+      "output": "bg-ajayin.webp",
+      "usage": "D2 church repair",
+      "status": "ready",
+      "resize_width": 960,
+      "note": "Source-sheet grid may remain visible; crop is presented as a memory-card/sticker, not a transparent sprite."
+    },
+    {
+      "asset_id": "bg-village-feast",
+      "source": "1787903999548.png",
+      "rect": {
+        "x": 0,
+        "y": 0,
+        "w": 1552,
+        "h": 688
+      },
+      "output": "bg-village-feast.webp",
+      "usage": "D3-03 feast",
+      "status": "ready",
+      "resize_width": 1120,
+      "note": "Source-sheet grid may remain visible; crop is presented as a memory-card/sticker, not a transparent sprite."
+    },
+    {
+      "asset_id": "bg-observatory",
+      "source": "1787883479147.png",
+      "rect": {
+        "x": 1055,
+        "y": 32,
+        "w": 300,
+        "h": 241
+      },
+      "output": "bg-observatory.webp",
+      "usage": "D4 observatory",
+      "status": "ready",
+      "resize_width": 960,
+      "note": "Source-sheet grid may remain visible; crop is presented as a memory-card/sticker, not a transparent sprite."
+    },
+    {
+      "asset_id": "church-interior",
+      "source": "1787883511363.png",
+      "rect": {
+        "x": 10,
+        "y": 245,
+        "w": 600,
+        "h": 695
+      },
+      "output": "church-interior.webp",
+      "usage": "D1 worship / D2 prayer",
+      "status": "ready",
+      "resize_width": 760,
+      "note": "Source-sheet grid may remain visible; crop is presented as a memory-card/sticker, not a transparent sprite."
+    },
+    {
+      "asset_id": "bus",
+      "source": "1787883500341.png",
+      "rect": {
+        "x": 18,
+        "y": 205,
+        "w": 268,
+        "h": 121
+      },
+      "output": "bus.webp",
+      "usage": "D1 / D4 travel sticker",
+      "status": "ready",
+      "resize_width": 520,
+      "note": "Source-sheet grid may remain visible; crop is presented as a memory-card/sticker, not a transparent sprite."
+    },
+    {
+      "asset_id": "tents",
+      "source": "1787883500341.png",
+      "rect": {
+        "x": 895,
+        "y": 25,
+        "w": 465,
+        "h": 199
+      },
+      "output": "tents.webp",
+      "usage": "D1 tent setup",
+      "status": "ready",
+      "resize_width": 760,
+      "note": "Source-sheet grid may remain visible; crop is presented as a memory-card/sticker, not a transparent sprite."
+    },
+    {
+      "asset_id": "brick-truck",
+      "source": "1787883505030.png",
+      "rect": {
+        "x": 770,
+        "y": 345,
+        "w": 350,
+        "h": 240
+      },
+      "output": "brick-truck.webp",
+      "usage": "D2 brick work",
+      "status": "ready",
+      "resize_width": 700,
+      "note": "Source-sheet grid may remain visible; crop is presented as a memory-card/sticker, not a transparent sprite."
+    },
+    {
+      "asset_id": "bricks",
+      "source": "1787883510115.png",
+      "rect": {
+        "x": 790,
+        "y": 690,
+        "w": 474,
+        "h": 153
+      },
+      "output": "bricks.webp",
+      "usage": "D2 brick work detail",
+      "status": "ready",
+      "resize_width": 760,
+      "note": "Source-sheet grid may remain visible; crop is presented as a memory-card/sticker, not a transparent sprite."
+    },
+    {
+      "asset_id": "prayer-team",
+      "source": "1787883511320.png",
+      "rect": {
+        "x": 785,
+        "y": 205,
+        "w": 579,
+        "h": 185
+      },
+      "output": "prayer-team.webp",
+      "usage": "D1 / D2 prayer",
+      "status": "ready",
+      "resize_width": 820,
+      "note": "Source-sheet grid may remain visible; crop is presented as a memory-card/sticker, not a transparent sprite."
+    },
+    {
+      "asset_id": "elders",
+      "source": "1787883500341.png",
+      "rect": {
+        "x": 455,
+        "y": 555,
+        "w": 505,
+        "h": 191
+      },
+      "output": "elders.webp",
+      "usage": "D3 pickup / welcome",
+      "status": "ready",
+      "resize_width": 820,
+      "note": "Source-sheet grid may remain visible; crop is presented as a memory-card/sticker, not a transparent sprite."
+    },
+    {
+      "asset_id": "elder-yellow",
+      "source": "1787883500341.png",
+      "rect": {
+        "x": 468,
+        "y": 565,
+        "w": 87,
+        "h": 181
+      },
+      "output": "elder-yellow.webp",
+      "usage": "D3-02 first entrant",
+      "status": "ready",
+      "resize_width": 210,
+      "note": "Source-sheet grid may remain visible; crop is presented as a memory-card/sticker, not a transparent sprite."
+    },
+    {
+      "asset_id": "elder-gray",
+      "source": "1787883500341.png",
+      "rect": {
+        "x": 555,
+        "y": 560,
+        "w": 90,
+        "h": 186
+      },
+      "output": "elder-gray.webp",
+      "usage": "D3-02 second entrant",
+      "status": "ready",
+      "resize_width": 210,
+      "note": "Source-sheet grid may remain visible; crop is presented as a memory-card/sticker, not a transparent sprite."
+    },
+    {
+      "asset_id": "elder-hat",
+      "source": "1787883500341.png",
+      "rect": {
+        "x": 710,
+        "y": 555,
+        "w": 95,
+        "h": 191
+      },
+      "output": "elder-hat.webp",
+      "usage": "D3-02 third entrant",
+      "status": "ready",
+      "resize_width": 210,
+      "note": "Source-sheet grid may remain visible; crop is presented as a memory-card/sticker, not a transparent sprite."
+    },
+    {
+      "asset_id": "meal-table",
+      "source": "1787883500341.png",
+      "rect": {
+        "x": 570,
+        "y": 350,
+        "w": 270,
+        "h": 205
+      },
+      "output": "meal-table.webp",
+      "usage": "D2 food prep / D3 meal",
+      "status": "ready",
+      "resize_width": 600,
+      "note": "Source-sheet grid may remain visible; crop is presented as a memory-card/sticker, not a transparent sprite."
+    },
+    {
+      "asset_id": "feast-stage",
+      "source": "1787883501759.png",
+      "rect": {
+        "x": 915,
+        "y": 155,
+        "w": 449,
+        "h": 465
+      },
+      "output": "feast-stage.webp",
+      "usage": "D3 singing vignette",
+      "status": "ready",
+      "resize_width": 680,
+      "note": "Source-sheet grid may remain visible; crop is presented as a memory-card/sticker, not a transparent sprite."
+    },
+    {
+      "asset_id": "door-prop",
+      "source": "1787883510115.png",
+      "rect": {
+        "x": 675,
+        "y": 20,
+        "w": 250,
+        "h": 345
+      },
+      "output": "door-prop.webp",
+      "usage": "D2 door-to-door motif",
+      "status": "ready",
+      "resize_width": 520,
+      "note": "Source-sheet grid may remain visible; crop is presented as a memory-card/sticker, not a transparent sprite."
+    },
+    {
+      "asset_id": "observatory-church",
+      "source": "1787883479147.png",
+      "rect": {
+        "x": 10,
+        "y": 22,
+        "w": 335,
+        "h": 256
+      },
+      "output": "observatory-church.webp",
+      "usage": "D4 memory card",
+      "status": "ready",
+      "resize_width": 600,
+      "note": "Source-sheet grid may remain visible; crop is presented as a memory-card/sticker, not a transparent sprite."
+    }
+  ]
+}

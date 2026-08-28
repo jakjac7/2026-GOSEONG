@@ -1,0 +1,11 @@
+dist
+node_modules
+public/assets/raw
+public/assets/processed
+pnpm-lock.yaml
+고성로그.md
+AGENTS.md
+Goseong_dev_prompt.md
+Goseong_gdd.md
+Goseong_prd.md
+public/assets/processed/asset-manifest.json
